@@ -43,83 +43,109 @@ const Calculator = () => {
     }
   };
   return (
-    <div className="main">
-      <div className="input">
-        <strong>{input || "0"}</strong>
-        <button onClick={handleDelete}>⌫</button>
-      </div>
-      <div className="numbers">
-        <div>
-          <button className="btnC" onClick={handleClear}>
-            AC
-          </button>
-          {["+", "-", "×"].map((btn) => (
-            <button
-              key={btn}
-              onClick={() => {
-                handleClick(btn);
-              }}
-            >
-              {btn}
-            </button>
-          ))}
+    <div className="parent">
+      <div className="main">
+        <div className="input">
+          <strong>{input || "0"}</strong>
+          <button onClick={handleDelete}>⌫</button>
         </div>
-        <div>
-          {[7, 8, 9, "÷"].map((btn) => (
-            <button
-              key={btn}
-              onClick={() => {
-                handleClick(btn);
-              }}
-            >
-              {btn}
+        <div className="numbers">
+          <div className="numsOne">
+            <button className="btnC" onClick={handleClear}>
+              AC
             </button>
-          ))}
-        </div>
-        <div>
-          {[4, 5, 6, "%"].map((btn) => (
-            <button
-              key={btn}
-              onClick={() => {
-                handleClick(btn);
-              }}
-            >
-              {btn}
-            </button>
-          ))}
-        </div>
-        <div>
-          {[1, 2, 3, "√"].map((btn) => (
-            <button
-              key={btn}
-              onClick={() => {
-                if (btn === "√") {
-                  handleSqrt(btn);
-                } else {
+            <div className="btnOp">
+              {["+", "-", "×"].map((btn) => (
+                <button
+                  key={btn}
+                  onClick={() => {
+                    handleClick(btn);
+                  }}
+                >
+                  {btn}
+                </button>
+              ))}
+            </div>
+            <div className="btnOp2">
+              {["÷", "%", "√"].map((btn) => (
+                <button
+                  key={btn}
+                  onClick={() => {
+                    if (btn === "√") {
+                      handleSqrt(btn);
+                    } else {
+                      handleClick(btn);
+                    }
+                  }}
+                >
+                  {btn}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            {[7, 8, 9].map((btn) => (
+              <button
+                key={btn}
+                onClick={() => {
                   handleClick(btn);
-                }
-              }}
-            >
-              {btn}
-            </button>
-          ))}
+                }}
+              >
+                {btn}
+              </button>
+            ))}
+          </div>
+          <div>
+            {[4, 5, 6].map((btn) => (
+              <button
+                key={btn}
+                onClick={() => {
+                  handleClick(btn);
+                }}
+              >
+                {btn}
+              </button>
+            ))}
+          </div>
+          <div>
+            {[1, 2, 3].map((btn) => (
+              <button
+                key={btn}
+                onClick={() => {
+                  handleClick(btn);
+                }}
+              >
+                {btn}
+              </button>
+            ))}
+          </div>
+          <div>
+            {[".", 0, "00"].map((btn) => (
+              <button
+                key={btn}
+                onClick={() => {
+                  handleClick(btn);
+                }}
+              >
+                {btn}
+              </button>
+            ))}
+          </div>
+          <button className="bntCalc" onClick={handleCalculate}>
+            =
+          </button>
         </div>
-        <div>
-          {[".", 0, "00"].map((btn) => (
-            <button
-              key={btn}
-              onClick={() => {
-                handleClick(btn);
-              }}
-            >
-              {btn}
-            </button>
-          ))}
-        </div>
-        <button className="bntCalc" onClick={handleCalculate}>
-          =
-        </button>
       </div>
+      <p
+        style={{
+          color: "white",
+          width: "240px",
+          textAlign: "center",
+          lineHeight: "1.4",
+        }}
+      >
+        Created By Mahmoud Abu Rabeh © 2025 Calculator
+      </p>
     </div>
   );
 };
