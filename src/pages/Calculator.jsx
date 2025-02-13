@@ -1,10 +1,15 @@
 import { useState } from "react";
 import "./Styles.css";
+import clickSoundFile from "../assets/click.mp3";
 
 const Calculator = () => {
   const [input, setInput] = useState("");
 
   const handleClick = (value) => {
+    const clickSound = new Audio(clickSoundFile);
+    clickSound.play();
+    console.log(clickSound);
+
     if (value === "×") value = "*";
     if (value === "÷") value = "/";
 
@@ -18,6 +23,9 @@ const Calculator = () => {
   };
 
   const handleSqrt = () => {
+    const clickSound = new Audio(clickSoundFile);
+    clickSound.play();
+    console.log(clickSound);
     setInput((prev) => prev);
     setInput((prev) =>
       prev ? `√(${prev}) = ${Math.sqrt(parseFloat(prev))}` : ""
@@ -25,14 +33,26 @@ const Calculator = () => {
   };
 
   const handleClear = () => {
+    const clickSound = new Audio(clickSoundFile);
+    clickSound.play();
+    console.log(clickSound);
+
     setInput("");
   };
 
   const handleDelete = () => {
+    const clickSound = new Audio(clickSoundFile);
+    clickSound.play();
+    console.log(clickSound);
+
     setInput((prev) => prev.slice(0, -1));
   };
 
   const handleCalculate = () => {
+    const clickSound = new Audio(clickSoundFile);
+    clickSound.play();
+    console.log(clickSound);
+
     try {
       let myInput = input;
       setInput(eval(myInput).toString());
